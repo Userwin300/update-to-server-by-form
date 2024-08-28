@@ -1,0 +1,65 @@
+<form [formGroup]="productProfileForm" (ngSubmit)="onSubmit2()">
+  <div>
+      <label for="first-name">รหัสสินค้า: </label>
+      <input id="first-name" type="text" formControlName="pCode" value="1">
+  </div>
+  <div>
+      <label for="first-name">ชื่อสินค้า: </label>
+      <input id="first-name" type="text" formControlName="pName" value="2">
+  </div>
+  <div>
+      <label for="first-name">ภาพ: </label>
+      <input id="first-name" type="text" formControlName="pLine" value="3">
+  </div>
+  <div>
+      <label for="first-name">ขนาด: </label>
+      <input id="first-name" type="text" formControlName="pScale" value="4">
+  </div>
+  <div>
+      <label for="first-name">ผู้ขายผลิตภัณฑ์: </label>
+      <input id="first-name" type="text" formControlName="pVendor" value="5">
+  </div>
+  <div>
+      <label for="first-name">คำอธิบาย: </label>
+      <input id="first-name" type="text" formControlName="pDescription" value="6">
+  </div>
+  <div>
+      <label for="first-name">ปริมาณในสต็อก: </label>
+      <input id="first-name" type="text" formControlName="quanity" value="7">
+  </div>                
+  <div>
+      <label for="first-name">ราคาขาย: </label>
+      <input id="first-name" type="text" formControlName="buyprice" value="8">
+  </div> 
+  <div>
+      <label for="first-name">ราคากลาง: </label>
+      <input id="first-name" type="text" formControlName="msrp" value="9">
+  </div>     
+  <button type="submit" [disabled]="!productProfileForm.valid">Onsubmit2()</button>
+</form>
+
+<button type="button" (click)="getProducts()">Fetch Products</button>
+<button type="button"(click)='getProducts2()'>getProducts2()</button>
+<br>
+
+<table>
+  
+  <tbody>
+  @for (x of products$; track x.productCode) {
+      <tr>
+      <td>{{ x.productCode }}</td>
+      <td style="padding-left: 20px;">{{ x.productName }}</td>
+      <td style="padding-left: 20px;">{{ x.productLine}}</td>
+      <td style="padding-left: 20px;">{{ x.productScale }}</td>
+      <td style="padding-left: 20px;" >{{ x.productVendor }}</td>
+      <td>{{ x.productDescription}}</td>
+      <td style="padding-left: 30px;">{{ x.quantityInStock }}</td>
+      <td style="padding-left: 20px;">{{ x.buyPrice }}</td>
+      <td style="padding-left: 20px;">{{ x.MSRP}}</td>                
+      </tr>
+  }
+  </tbody>
+</table>
+
+
+

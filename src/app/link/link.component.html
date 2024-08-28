@@ -1,0 +1,82 @@
+<form [formGroup]="ProductForm" (ngSubmit)="onUpdate()">
+  <div>
+      <label for="proCode">Product-Code (use this to update the record): </label>
+      <input id="proCode" type="text" formControlName="productCode">
+  </div>
+  <div>
+      <label for="pronName">Product-Name: </label>
+      <input id="pronName" type="text" formControlName="productName">
+  </div>
+  <div>
+      <label for="proLine">Product-Line: </label>
+      <input id="proLine" type="text" formControlName="productLine">
+  </div>
+  <div>
+      <label for="proScale">Product-Scale: </label>
+      <input id="proScale" type="text" formControlName="productScale">
+  </div>
+  <div>
+      <label for="proVendor">Product-Vendor: </label>
+      <input id="proVendor" type="text" formControlName="productVendor">
+  </div>
+  <div>
+      <label for="des">Product-Description: </label>
+      <input id="des" type="text" formControlName="productDescription">
+  </div>
+  <div>
+      <label for="quan">Product-Quantity: </label>
+      <input id="quan" type="text" formControlName="quantityInStock">
+  </div>                
+  <div>
+      <label for="price">Product-Price: </label>
+      <input id="price" type="text" formControlName="buyPrice">
+  </div> 
+  <div>
+      <label for="mrspice">Product-MSRP: </label>
+      <input id="mrspice" type="text" formControlName="MSRP">
+  </div>     
+  <button type="submit" [disabled]="!ProductForm.valid">Update</button>
+</form>
+
+<br>
+
+<form (ngSubmit)="conlog()">
+    <label for="productCode">Product Code:</label>
+    <input
+      id="productCode"
+      type="text"
+      [(ngModel)]="find"
+      name="productCode"
+      required
+    >
+    <button type="submit">Find Product</button>
+  </form>
+
+<table>
+    <thead>
+        <tr>
+          <th>Product Code</th>
+          <th style="padding-left: 20px;">Product Name</th>
+          <th style="padding-left: 20px;">Product Line</th>
+          <th style="padding-left: 20px;">Product Scale</th>
+          <th style="padding-left: 20px;">Product Vendor</th>
+          <th style="padding-left: 20px;">Product Description</th>
+          <th style="padding-left: 30px;">Quantity In Stock</th>
+          <th style="padding-left: 20px;">Buy Price</th>
+          <th style="padding-left: 20px;">MSRP</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of products$">
+        <td>{{ x.productCode }}</td>
+        <td style="padding-left: 20px;">{{ x.productName }}</td>
+        <td style="padding-left: 20px;">{{ x.productLine }}</td>
+        <td style="padding-left: 20px;">{{ x.productScale }}</td>
+        <td style="padding-left: 20px;">{{ x.productVendor }}</td>
+        <td>{{ x.productDescription }}</td>
+        <td style="padding-left: 30px;">{{ x.quantityInStock }}</td>
+        <td style="padding-left: 20px;">{{ x.buyPrice }}</td>
+        <td style="padding-left: 20px;">{{ x.MSRP }}</td>
+      </tr>
+    </tbody>
+</table>
